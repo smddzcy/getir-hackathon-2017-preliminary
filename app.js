@@ -1,10 +1,14 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+'use strict';
 
-var app = express();
-var getRecord = require('routes/getRecord.js');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+// Get the routes
+const getRecord = require('./routes/getRecord');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -15,7 +19,7 @@ app.use('/getRecord', getRecord);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
