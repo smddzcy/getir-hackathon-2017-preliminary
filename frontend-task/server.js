@@ -4,7 +4,7 @@ const gzippo = require('gzippo');
 const express = require('express');
 const app = express();
 
-app.use(gzippo.staticGzip(__dirname + "/"));
+app.use(gzippo.staticGzip(__dirname + "/app"));
 
 app.get('/', function(req, res) {
   res.render('index');
