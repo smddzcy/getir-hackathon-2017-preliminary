@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/skeleton.css">
-        <script src="bower_components/angular-datepicker/dist/angular-datepicker.min.css"></script>
+        <link rel="stylesheet" href="bower_components/angularjs-datepicker/dist/angular-datepicker.min.css">
     </head>
     <body ng-app="myApp" ng-cloak>
         <!--[if lt IE 8]>
@@ -17,12 +17,57 @@
 
         <div class="container"
              ng-controller="MainContoller as vm">
-            {{ vm.w }}
+
+            <h1>Simple DatePicker App</h1>
+            <hr>
+
+            <div class="row">
+                <div class="four columns">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input class="u-full-width"
+                               ng-model="vm.startDate"
+                               placeholder="Choose a start date"
+                               type="text"/>
+                    </datepicker>
+                </div>
+
+
+                <div class="four columns">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input class="u-full-width"
+                               ng-model="vm.endDate"
+                               placeholder="Choose an end date"
+                               type="text"/>
+                    </datepicker>
+                </div>
+
+                <div class="four columns">
+                    <button ng-click="vm.send()"
+                            type="submit">Send</button>
+                </div>
+            </div>
+
+            <table class="u-full-width"
+                   ng-show="vm.records">
+                <thead>
+                    <tr>
+                        <th>key</th>
+                        <th>value</th>
+                        <th>createdAt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="record in vm.records track by $index">
+                        <td>{{ ::record.key }}</td>
+                        <td>{{ ::record.value }}</td>
+                        <td>{{ ::record.createdAt }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
-        <script src="bower_components/angular-datepicker/dist/angular-datepicker.min.js"></script>
+        <script src="bower_components/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
     </body>
