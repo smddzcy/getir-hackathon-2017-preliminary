@@ -4,10 +4,14 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var app = express();
+var getRecord = require('routes/getRecord.js');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Use included routes
+app.use('/getRecord', getRecord);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
