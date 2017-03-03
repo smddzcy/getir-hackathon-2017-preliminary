@@ -15,7 +15,7 @@ const findRecord = (key) => {
       const records = db.collection('records');
 
       // Find the document with the key and resolve the promise.
-      records.findOne({key: key})
+      records.findOne({key: key}, {_id: 0})
         .then(resolve)
         .catch(reject);
     }).catch(reject);
@@ -37,18 +37,18 @@ const findRecord = (key) => {
  *   "createdAt" : "2016-01-26"
  * }
  */
-router.post('/getRecord', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const key = req.body.key;
-  if (!key) {
+  if(!key) {
     // Return an error, request body doesn't contain a "key" field.
     const err = new Error('Request body should contain a "key" field.');
     err.status = 422;
-    next();
+    next(err);
   }
 
   findRecord(key).then((record) => {
     res.json(record);
-  }).catch(() => next());
+  }).catch(next);
 });
 
 module.exports = router;
