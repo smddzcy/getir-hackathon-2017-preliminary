@@ -1,0 +1,21 @@
+{
+  "name": "frontend-task",
+  "homepage": "https://github.com/smddzcy/getir-hackathon-2017",
+  "authors": [
+    "Samed Duzcay <samedduzcay@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.2",
+    "angularjs-datepicker": "^2.1.13"
+  }
+}
