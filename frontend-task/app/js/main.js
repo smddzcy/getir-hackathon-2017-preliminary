@@ -13,19 +13,13 @@ app.run(function ($http) {
 
 app.controller('MainContoller', ['$http', '$scope', function ($http, $scope) {
   this.send = () => {
-    const endpoint = "https://getir-bitaksi-hackathon.herokuapp.com/getRecords";
+    const recordEndpoint = "https://getir-bitaksi-hackathon.herokuapp.com/getRecords";
 
-    $http({
-      url: endpoint,
-      dataType: 'json',
-      method: 'POST',
-      data: {
-        startDate: this.startDate,
-        endDate: this.endDate
-      },
-      headers: { "Content-Type": "application/json" }
+    $http.post(recordEndpoint, {
+      startDate: this.startDate,
+      endDate: this.endDate
     }).then((res) => {
-      this.records = res.records;
+      this.records = res.data.records;
     }).catch((err) => {
       console.log("Error:", err);
     });
