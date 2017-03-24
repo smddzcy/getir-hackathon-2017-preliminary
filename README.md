@@ -1,6 +1,6 @@
 # Getir Hackathon 2017 - Wow Team
 
-This is the repository of Wow Team at Getir Hackathon 2017.
+This is the preliminary task repository of Wow Team at Getir Hackathon 2017.
 
 ## Preliminary Tasks
 
